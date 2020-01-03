@@ -1,6 +1,6 @@
 # project-euler
 
-Project Euler solutions in JS https://projecteuler.net/
+Project Euler's solutions in JS https://projecteuler.net/
 
 ### Solutions in the repo
 
