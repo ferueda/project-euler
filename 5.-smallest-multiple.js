@@ -4,7 +4,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 */
   
 function smallestMultiple() {
-  for (i = 20;i ; i++) {
+  for (i = 2520; i; i++) {
     for (j = 20; j >= 2; j--) {
       if (i % j) break;
       if (j === 2) return i;
