@@ -9,3 +9,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 3. Largest Prime Factor
 4. Largest Palindrome Product
 5. Smallest Multiple
+6. Sum Square Difference
