@@ -11,7 +11,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 */
   
 function sumSquareDifference() {
-  let nums = [...Array(101).keys()];
+  const nums = [...Array(101).keys()];
   
   const squareSum = nums.reduce((acc, num) => acc + num**2, 0);
   const sumSquare = nums.reduce((acc, num) => acc + num, 0)**2;
