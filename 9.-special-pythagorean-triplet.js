@@ -18,22 +18,22 @@ function specialPythagoreanTriplet() {
 }
 
 /*
-We initially have
-a^2 + b^2 = c^2
-a + b + c = 1000
+We initially have 2 formulas:
+  a^2 + b^2 = c^2
+  a + b + c = 1000
 
-First, rearrange c to left
-c = 1000 - (a + b)
+First, rearrange c to left in the second formula
+  c = 1000 - (a + b)
 
-Insert c in first formula
-a^2 + b^2 = (1000 - (a + b))^2
+Insert c in the first formula
+  a^2 + b^2 = (1000 - (a + b))^2
 
-Multiplying we get
-a^2 + b^2 = 1000000 - 2000 * (a + b) + a^2 + 2 * a * b + b^2
+After multiplying we get
+  a^2 + b^2 = 1000000 - 2000 * (a + b) + a^2 + 2 * a * b + b^2
 
 Rearrange formula to simplify and divide by 2
-1000 * (a + b) - a * b = 500000
+  1000 * (a + b) - a * b = 500000
 
-Leave a left
-a = (500000 - 1000 * b) / (1000 - b)
+Leave a to the left
+  a = (500000 - 1000 * b) / (1000 - b)
 */
