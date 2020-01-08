@@ -10,7 +10,7 @@ Find the product abc.
 
 function specialPythagoreanTriplet() {
   let a, b;
-  for (let b = 1; b < 1000; b++) {
+  for (b = 1; b < 1000; b++) {
     a = (500000 - 1000 * b) / (1000 - b); //initial equations rearranged using algebra
     
     if (a % 1 === 0) return a * b * (1000 - (b + a));
