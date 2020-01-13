@@ -14,3 +14,5 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 8. Largest product in a series
 9. Special Pythagorean triplet
 10. Summation of primes
+11. 
+12. Highly divisible triangular number
