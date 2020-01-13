@@ -17,7 +17,17 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 */
 
+function highlyDivisibleTriangularNumber(nDiv) {
+  for (i = 1; i; i++) {
+    triangularNumber = findTriangularNumber(i);
+    if (findDivisors(triangularNumber).length === nDiv) return triangularNumber;
+  }
+}
 
+//function that finds the n triangular number
+function findTriangularNumber(n) {
+  return n * (n + 1) / 2;
+}
 
 //function that finds natural divisors of a given number.
 function findDivisors(n) {
