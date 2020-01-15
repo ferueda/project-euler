@@ -16,16 +16,23 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 function longestCollatzSequence() {
   let largest = 0;
+  let starting = 0;
+
   for (let i = 1; i < 1000000; i++) {
     let num = i;
-    let numbers = [num];
+    let iterations = 1;
 
     while (num !== 1) {
       if (num % 2) num = (num * 3) + 1;
       else num = num / 2;
-      numbers.push(num);
+
+      iterations += 1;
     }
-    if (numbers.length > largest) largest = numbers.length;
+
+    if (iterations > largest) {
+      largest = iterations;
+      starting = i;
+    }
   }
-  return largest;
+  return starting;
 }
