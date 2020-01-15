@@ -20,7 +20,7 @@ What is the value of the first triangle number to have over five hundred divisor
 function highlyDivisibleTriangularNumber(nDiv) {
   for (i = 1; i; i++) {
     triangularNumber = findTriangularNumber(i);
-    if (findDivisors(triangularNumber).length === nDiv) return triangularNumber;
+    if (findDivisors(triangularNumber) === nDiv) return triangularNumber;
   }
 }
 
@@ -29,14 +29,14 @@ function findTriangularNumber(n) {
   return n * (n + 1) / 2;
 }
 
-//function that finds natural divisors of a given number.
+//function that finds the number of natural divisors of a given number.
 function findDivisors(n) {
-  let divisors = [];
+  let divisors = 0;
   for (let i = 1; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
-      if (n / i === i) divisors.push(i);
-      else divisors.push(i, n / i);
+      if (n / i === i) divisors += 1;
+      else divisors += 2;
     }
   }
-  return divisors.sort((a, b) => a - b);
+  return divisors;
 }
