@@ -106,7 +106,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 function largeSum(num) {
   return String(num
           .replace(/[\t\n\r]/g, '') //returns the number (string) trimmed for spaces, tabs and carriage returns
-          .match(/\d{1,50}/g) //slice the whole number in 50 digits numbers
+          .match(/\d{1,50}/g) //slice the whole number in 50 digits numbers and returns an array
           .reduce((acc, num) => acc + Number(num), 0)) //sums every 50 digits number
           .slice(0, 11) //return the first 10 digits of the number
           .replace('.', ''); //removes the dot (because the size of the number, it's displayed in exponential notation )
