@@ -16,3 +16,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 10. Summation of primes
 11. 
 12. Highly divisible triangular number
+13. Large sum
