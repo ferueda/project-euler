@@ -20,11 +20,11 @@ What is the value of the first triangle number to have over five hundred divisor
 function highlyDivisibleTriangularNumber(nDiv) {
   for (i = 1; i; i++) {
     triangularNumber = findTriangularNumber(i);
-    if (findDivisors(triangularNumber) === nDiv) return triangularNumber;
+    if (findDivisors(triangularNumber) > nDiv) return triangularNumber;
   }
 }
 
-//function that finds the n triangular number
+//function that finds the nth triangular number
 function findTriangularNumber(n) {
   return n * (n + 1) / 2;
 }
@@ -34,9 +34,11 @@ function findDivisors(n) {
   let divisors = 0;
   for (let i = 1; i <= Math.sqrt(n); i++) {
     if (n % i === 0) {
-      if (n / i === i) divisors += 1;
+      if (i * i === n) divisors += 1;
       else divisors += 2;
     }
   }
   return divisors;
 }
+
+console.log(highlyDivisibleTriangularNumber(500));
