@@ -18,3 +18,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 12. Highly divisible triangular number
 13. Large sum
 14. Longest Collatz sequence
+15. Lattice paths
