@@ -19,3 +19,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 13. Large sum
 14. Longest Collatz sequence
 15. Lattice paths
+16. Power digit sum
