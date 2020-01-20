@@ -20,3 +20,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 14. Longest Collatz sequence
 15. Lattice paths
 16. Power digit sum
+17. Number letter counts
