@@ -22,7 +22,7 @@ const numbers = {
   12: 'twelve',
   13: 'thirteen',
   14: 'fourteen',
-  15: 'fifthteen',
+  15: 'fifteen',
   16: 'sixteen',
   17: 'seventeen',
   18: 'eighteen',
@@ -41,23 +41,33 @@ const numbers = {
 
 function numberLetterCounts(num) {
   let sum = 0;
+  let dividedNum = divideNum(num);
   
   for (let i = 1; i <= num; i++) {
-    console.log(i, numbers[String(i)]);
     sum += numbers[String(i)].length
   }
   
   return sum;
 }
 
+function getNumWords(num) {
+  if (num <= 20) return numbers[num];
+  return divideNum(num).map(n => {
+    if (n.length > 1) return n.split(0)
+    numbers[n]
+  });
+}
+
 function divideNum(num) {
+  const len = String(num).length;
   let dividedNums = String(num).split('');
   
-  for (let i = 0; i < String(num).length; i++) {
-    dividedNums[i] += '0'.repeat(String(num).length - 1 - i)
+  for (let i = 0; i < len; i++) {
+    dividedNums[i] += '0'.repeat(len - 1 - i)
   }
   
   return dividedNums.filter(n => n !== '0' && n !== '00' && n !== '000');
 }
 
-console.log(numberLetterCounts(15));
+// console.log(numberLetterCounts(15));
+console.log(getNumWords(101));
