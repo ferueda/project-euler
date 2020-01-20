@@ -41,21 +41,25 @@ const numbers = {
 
 function numberLetterCounts(num) {
   let sum = 0;
-  let dividedNum = divideNum(num);
   
   for (let i = 1; i <= num; i++) {
-    sum += numbers[String(i)].length
+    sum += getNumWords(i).reduce((acc, n) => acc + n.length, 0);
   }
   
   return sum;
 }
 
 function getNumWords(num) {
-  if (num <= 20) return numbers[num];
-  return divideNum(num).map(n => {
-    if (n.length > 1) return n.split(0)
-    numbers[n]
-  });
+  if (num <= 20) return [numbers[num]];
+  
+  let wordNum = divideNum(num).map(n => {
+    if (n.includes('00')) return [numbers[n.slice(0, 1)], numbers[n.slice(1, n.length)]]
+    else return numbers[n]
+  }).flat();
+  
+  if (wordNum.length > 2) wordNum.push('and');
+
+  return wordNum;
 }
 
 function divideNum(num) {
@@ -65,7 +69,6 @@ function divideNum(num) {
   for (let i = 0; i < len; i++) {
     dividedNums[i] += '0'.repeat(len - 1 - i)
   }
-  
   return dividedNums.filter(n => n !== '0' && n !== '00' && n !== '000');
 }
 
