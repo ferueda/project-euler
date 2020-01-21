@@ -69,8 +69,12 @@ function divideNum(num) {
   for (let i = 0; i < len; i++) {
     dividedNums[i] += '0'.repeat(len - 1 - i)
   }
+
+  if (dividedNums[1] === '10' && dividedNums[2]) {
+    dividedNums.splice(1, 2, String(Number(dividedNums[1]) + Number(dividedNums[2])))
+  }
+
   return dividedNums.filter(n => n !== '0' && n !== '00' && n !== '000');
 }
 
-// console.log(numberLetterCounts(15));
-console.log(getNumWords(101));
+console.log(numberLetterCounts(1000))
