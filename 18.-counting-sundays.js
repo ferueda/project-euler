@@ -12,32 +12,19 @@ A leap year occurs on any year evenly divisible by 4, but not on a century unles
 How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 */
 
-console.log(getDaysOfTheMonth('feb', 1600))
-
-function countingSundays(day, month,  year) {
+function countingSundays(from, to) {
+  const initYear = new Date(from).getFullYear();
+  const finalYear = new Date(to).getFullYear();
   let sundays = 0;
-  
+
+  for (let year = initYear; year <= finalYear; year++) {
+    for (let month = 1; month <= 12; month++) {
+      const currDate = new Date(year, month, 1).getDay()
+      if (currDate === 0) sundays += 1;
+    }
+  }
+
+  return sundays;
 }
 
-function getDaysOfTheMonth(month, year) {
-  const months = {
-    jan: 31,
-    feb: 28,
-    mar: 31,
-    apr: 30,
-    may: 31,
-    jun: 30,
-    jul: 31,
-    aug: 31,
-    sep: 30,
-    oct: 31,
-    nov: 30,
-    dec: 31,
-  }
-  
-  if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
-    months.feb = 29;
-  }
-   
-  return months[month];
-}
+console.log(countingSundays('1 Jan 1901', '31 Dec 2000'))
