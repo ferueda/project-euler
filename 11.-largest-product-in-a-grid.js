@@ -56,16 +56,15 @@ function get(arr, y, x) {
   if (0 <= y && y < arr.length && 0 <= x && x < arr[y].length) {
     return arr[y][x];
   }
+  
   return 0;
 }
 
 function largestProduct(arr, k) {
-
   let max = 0;
 
   for (let y = 0; y < arr.length; y++) {
     for (let x = 0; x < arr.length; x++) {
-
       let p1 = 1, p2 = 1, p3 = 1, p4 = 1;
 
       for (let i = 0; i < k; i++) {
@@ -77,6 +76,7 @@ function largestProduct(arr, k) {
       max = Math.max(p1, p2, p3, p4, max);
     }
   }
+  
   return max;
 }
-largestProduct(arr, 4);
+console.log(largestProduct(arr, 4));
