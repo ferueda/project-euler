@@ -61,6 +61,20 @@ for (let i = 0; i < matrix.length; i++) {
   }
 }
 
-function maxPathSum(matrix, )
+function maxPathSum(matrix) {
+  length = matrix.length;
+
+  for (let i = length - 1; i >= 0; i--) {
+    for (let j = 0; j <= i; j++) {
+      if (matrix[i + 1][j] > matrix[i + 1][j + 1]) {
+        matrix[i][j] += matrix[i + 1][j]
+      } else {
+        matrix[i][j] += matrix[i + 1][j + 1]
+      }
+    }
+  }
+
+  return matrix[i][j];
+}
 
 console.log(matrix);
