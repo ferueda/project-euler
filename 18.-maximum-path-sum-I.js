@@ -45,31 +45,12 @@ let triangle = `75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 
-triangle = triangle
-              .replace(/[ \n\\r]/g, '').match(/\d{2}/g)
-              .map(n => Number(n));
-
-let matrix = [];
-
-for (let i = 1; triangle.length > 0; i++) {
-  matrix.push(triangle.splice(0, i));
-}
-
-const length = matrix[matrix.length - 1].length;
-
-for (let i = 0; i < matrix.length; i++) {
-  for (let j = i; j < length - 1; j++) {
-    matrix[i].push(0);
-  }
-}
-
-console.log(matrix);
-
 function maxPathSum(matrix) {
   let length = matrix.length;
 
   for (let i = length - 2; i >= 0; i--) {
     for (let j = 0; j <= i; j++) {
+      
       if (matrix[i + 1][j] > matrix[i + 1][j + 1]) {
         matrix[i][j] += matrix[i + 1][j]
       } else {
@@ -77,8 +58,30 @@ function maxPathSum(matrix) {
       }
     }
   }
-
   return matrix[0][0];
 }
 
-console.log(maxPathSum(matrix));
+function generateMatrix(triangle) {
+  let fixedTriangle = triangle
+              .replace(/[ \n\\r]/g, '').match(/\d{2}/g)
+              .map(n => Number(n));
+
+  let matrix = [];
+
+  for (let i = 1; fixedTriangle.length > 0; i++) {
+    matrix.push(fixedTriangle.splice(0, i));
+  }
+
+  const length = matrix[matrix.length - 1].length;
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = i; j < length - 1; j++) {
+      matrix[i].push(0);
+    }
+  }
+
+  return matrix;
+}
+
+
+console.log(maxPathSum(generateMatrix(triangle)));
