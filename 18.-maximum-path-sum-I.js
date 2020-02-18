@@ -45,7 +45,9 @@ let triangle = `75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 
-triangle = triangle.replace(/[ \n\\r]/g, '').match(/\d{2}/g);
+triangle = triangle
+              .replace(/[ \n\\r]/g, '').match(/\d{2}/g)
+              .map(n => Number(n));
 
 let matrix = [];
 
@@ -61,10 +63,12 @@ for (let i = 0; i < matrix.length; i++) {
   }
 }
 
-function maxPathSum(matrix) {
-  length = matrix.length;
+console.log(matrix);
 
-  for (let i = length - 1; i >= 0; i--) {
+function maxPathSum(matrix) {
+  let length = matrix.length;
+
+  for (let i = length - 2; i >= 0; i--) {
     for (let j = 0; j <= i; j++) {
       if (matrix[i + 1][j] > matrix[i + 1][j + 1]) {
         matrix[i][j] += matrix[i + 1][j]
@@ -74,7 +78,7 @@ function maxPathSum(matrix) {
     }
   }
 
-  return matrix[i][j];
+  return matrix[0][0];
 }
 
-console.log(matrix);
+console.log(maxPathSum(matrix));
