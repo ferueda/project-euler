@@ -23,3 +23,5 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 17. Number letter counts
 18. Maximum path sum I
 19. Counting Sundays
+20. 
+21. Amicable numbers
