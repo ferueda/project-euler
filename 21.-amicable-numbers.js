@@ -7,6 +7,20 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 */
 
+function amicableNumbersSum(num) {
+  let amicableSum = 0;
+  for (let i = 1; i < num; i++) {
+    if (isAmicable(i)) amicableSum += i;
+  }
+  return amicableSum;
+}
+
+function isAmicable(num) {
+  let num1 = getProperDivisorsSum(num);
+  let num2 = getProperDivisorsSum(num1);
+  return num2 === num && num2 !== num1;
+}
+
 function getProperDivisorsSum(num) {
   let sum = 1;
 
@@ -19,4 +33,4 @@ function getProperDivisorsSum(num) {
   return sum;
 }
 
-console.log(getProperDivisorsSum(220))
+console.log(amicableNumbersSum(10000))
