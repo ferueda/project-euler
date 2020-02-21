@@ -11,7 +11,7 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 function nonAbundantSum() {
   const abundantsSum = generateAbundantNumbersSum();
   let nonAbundants = 0;
-  for (let i = 1; i <= 28123; i++) {
+  for (let i = 1; i < 28123; i++) {
     if (!abundantsSum.includes(i)) nonAbundants += i;
   }
   return nonAbundants;
@@ -32,7 +32,7 @@ function generateAbundantNumbersSum() {
 
 function generateAbundantNumbers() {
   let abundants = [];
-  for (let i = 2; i <= 28123; i++) {
+  for (let i = 2; i < 28123; i++) {
     if (isAbundant(i)) abundants.push(i)
   }
   return abundants;
@@ -44,7 +44,7 @@ function isAbundant(num) {
 
 function getDivisors(num) {
   let divisors = [];
-  for (let i = 1; i < Math.sqrt(num); i++) {
+  for (let i = 1; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
       if ((num / i) === i || (num / i) === num) divisors.push(i);
       else divisors.push(i, num / i);
