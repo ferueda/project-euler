@@ -8,6 +8,19 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 */
 
+function generateAbundantNumbersSum() {
+  let abundants = generateAbundantNumbers();
+  let abudantsSums = [];
+  for (let i = 0; i < abundants.length; i++) {
+    for (let j = i; j < abundants.length; j++) {
+      if (abundants[i] + abundants[j] < 28123) {
+        abudantsSums.push(abundants[i] + abundants[j])
+      }
+    }
+  }
+  return abudantsSums;
+}
+
 function generateAbundantNumbers() {
   let abundants = [];
   for (let i = 2; i <= 28123; i++) {
@@ -17,7 +30,7 @@ function generateAbundantNumbers() {
 }
 
 function isAbundant(num) {
-  return getDivisors(num).reduce((acc, n) => acc + n, 0) >= num;
+  return getDivisors(num).reduce((acc, n) => acc + n, 0) > num;
 }
 
 function getDivisors(num) {
@@ -31,4 +44,4 @@ function getDivisors(num) {
   return divisors;
 }
 
-console.log(generateAbundantNumbers());
+console.log(generateAbundantNumbersSum());
