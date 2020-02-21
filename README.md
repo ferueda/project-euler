@@ -25,3 +25,5 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 19. Counting Sundays
 20. 
 21. Amicable numbers
+22.
+23. Non-abundant sums
