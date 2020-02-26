@@ -27,3 +27,4 @@ Project Euler's solutions using JavaScript https://projecteuler.net/
 21. Amicable numbers
 22.
 23. Non-abundant sums
+24. Lexicographic permutations
